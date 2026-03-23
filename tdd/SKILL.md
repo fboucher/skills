@@ -1,9 +1,19 @@
 ---
 name: tdd
-description: Test-driven development with red-green-refactor loop in .NET (C#). Use when user wants to build features or fix bugs using TDD, mentions "red-green-refactor", wants integration tests, or asks for test-first development.
+description: Test-driven development with red-green-refactor loop. Use when user wants to build features or fix bugs using TDD, mentions "red-green-refactor", wants integration tests, or asks for test-first development.
 ---
 
 # Test-Driven Development
+
+## Language Setup
+
+Detect the project language from context (check for `package.json` → Node.js, `*.csproj` / `*.sln` → .NET, `requirements.txt` / `pyproject.toml` → Python) and read the corresponding adapter files:
+
+- **.NET (C#)**: [dotnet/tests.md](dotnet/tests.md), [dotnet/mocking.md](dotnet/mocking.md)
+- **Node.js / TypeScript**: [nodejs/tests.md](nodejs/tests.md), [nodejs/mocking.md](nodejs/mocking.md)
+- **Python**: [python/tests.md](python/tests.md), [python/mocking.md](python/mocking.md)
+
+If the language is unclear, ask the user before proceeding.
 
 ## Philosophy
 
