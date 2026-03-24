@@ -3,12 +3,17 @@ name: edit-video-blog
 description: Write a polished technical blog post from a video transcript and an initial draft. Use when the user provides a transcript and/or draft and wants a finished article suitable for publication.
 ---
 
-Ask the user to provide:
+## Step 0 — Gather inputs
+
+Before doing anything else, ask the user for the following. Do NOT proceed until you have at least the transcript.
+
 - The **video transcript** (required — this is the source of truth for what was actually said)
 - The **initial draft** article, if they have one
 - The **YouTube video URL**, if they have one
 - The **GitHub repository URL**, if any
 - The **target audience** (e.g. "intermediate Go developers", "developers new to Kubernetes")
+
+Wait for the user to respond before continuing.
 
 ---
 
@@ -67,6 +72,7 @@ Avoid:
 - Filler phrases ("In this section, we will...", "As we can see...")
 - Re-stating the section heading in the first sentence
 - Padding that wasn't in the transcript
+- Em dashes (—): rewrite the sentence instead of using them
 
 ---
 
