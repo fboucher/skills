@@ -2,6 +2,12 @@
 
 These are personal agent skills to help me when using AI. It's a work in progress, and even changing repo.
 
+To add a skill use the following command:
+
+```bash
+npx skills add fboucher/skills/grill-me
+```
+
 - **grill-me** — Get relentlessly interviewed about a plan or design until every branch of the decision tree is resolved.
 
 - **write-a-prd** — Create a Product Requirement Document (PRD) through an interactive interview, codebase exploration, and module design. Filed as a GitHub issue.
