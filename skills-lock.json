@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "write-a-skill": {
+      "source": "fboucher/skills",
+      "sourceType": "github",
+      "computedHash": "a96f524d5a62c4c33620c7451aeb2935a0a69edd0a76bbf09291a5e53f8d9ecc"
+    }
+  }
+}

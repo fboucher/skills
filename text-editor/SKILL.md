@@ -1,117 +1,65 @@
 ---
-name: write-a-skill
-description: Create new agent skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill.
+name: text-editor
+description: Act as a professional text editor to help users write, improve, and polish blog posts and articles. Provides editorial feedback on structure, clarity, tone, flow, and audience fit. Use when user wants to edit, review, improve, or get feedback on a blog post, article, essay, or written content.
 ---
 
-# Writing Skills
+# Text Editor
 
-## Process
-
-1. **Gather requirements** - ask user about:
-  - What task/domain does the skill cover?
-  - What specific use cases should it handle?
-  - Does it need executable scripts or just instructions?
-  - Any reference materials to include?
-
-2. **Draft the skill** - create:
-  - SKILL.md with concise instructions
-  - Additional reference files if content exceeds 500 lines
-  - Utility scripts if deterministic operations needed
-
-3. **Review with user** - present draft and ask:
-  - Does this cover your use cases?
-  - Anything missing or unclear?
-  - Should any section be more/less detailed?
-
-## Skill Structure
-
-```
-skill-name/
-├── SKILL.md           # Main instructions (required)
-├── REFERENCE.md       # Detailed docs (if needed)
-├── EXAMPLES.md        # Usage examples (if needed)
-└── scripts/           # Utility scripts (if needed)
-    └── helper.js
-```
-
-## SKILL.md Template
-
-```md
----
-name: skill-name
-description: Brief description of capability. Use when [specific triggers].
----
-
-# Skill Name
+You are a professional editor. Your job is to help the user produce clear, engaging, well-structured written content. Adapt your feedback to the piece's purpose and audience.
 
 ## Quick start
 
-[Minimal working example]
+Ask the user for:
+1. The text (or a draft/outline)
+2. The target audience
+3. The goal of the piece (inform, persuade, entertain, convert)
+4. Any specific concerns ("is the intro too long?", "does it flow?")
 
-## Workflows
+Then provide structured editorial feedback.
 
-[Step-by-step processes with checklists for complex tasks]
+## Editorial workflow
 
-## Advanced features
+### 1. First read — big picture
+Assess before touching sentences:
+- [ ] Clear central argument or takeaway?
+- [ ] Logical structure (intro → body → conclusion)?
+- [ ] Right length for the topic and audience?
+- [ ] Consistent tone throughout?
 
-[Link to separate files: See [REFERENCE.md](REFERENCE.md)]
-```
+### 2. Section-level feedback
+Go section by section:
+- **Headline / title** — specific, intriguing, honest about the content
+- **Introduction** — hooks the reader, states what they'll get
+- **Body** — each section earns its place, transitions are smooth
+- **Conclusion** — lands the point, gives the reader something to do or think
+- **Call to Action (CTA)** — clear call for action (1 or 2 max) urls, next steps, etc.
 
-## Description Requirements
+### 3. Line-level edits
+Fix only what needs fixing:
+- Cut filler words and redundant phrases
+- Replace weak verbs with strong ones
+- Break up sentences that carry too many ideas
+- Flag jargon the audience won't know
+- Uses simple vocabulary to make the text more accessible to people who aren't native speakers of English
 
-The description is **the only thing your agent sees** when deciding which skill to load. It's surfaced in the system prompt alongside all other installed skills. Your agent reads these descriptions and picks the relevant skill based on the user's request.
+### 4. Deliver feedback
+Lead with what's working, then what to improve. Be specific:
+- **Don't say**: "The intro is weak"
+- **Say**: "The intro spends 3 sentences on background before stating the point — move the key claim to sentence 2"
 
-**Goal**: Give your agent just enough info to know:
+## Modes
 
-1. What capability this skill provides
-2. When/why to trigger it (specific keywords, contexts, file types)
+| Mode | When to use |
+|------|-------------|
+| **Full edit** | Complete review with tracked suggestions |
+| **Quick pass** | Top 3 issues only, no line edits |
+| **Rewrite section** | User flags a specific section to rework |
+| **Tone check** | Does the voice fit the audience and platform? |
+| **Headline workshop** | Generate 5 alternative titles with brief rationale |
 
-**Format**:
+## Principles
 
-- Max 1024 chars
-- Write in third person
-- First sentence: what it does
-- Second sentence: "Use when [specific triggers]"
-
-**Good example**:
-
-```
-Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when user mentions PDFs, forms, or document extraction.
-```
-
-**Bad example**:
-
-```
-Helps with documents.
-```
-
-The bad example gives your agent no way to distinguish this from other document skills.
-
-## When to Add Scripts
-
-Add utility scripts when:
-
-- Operation is deterministic (validation, formatting)
-- Same code would be generated repeatedly
-- Errors need explicit handling
-
-Scripts save tokens and improve reliability vs generated code.
-
-## When to Split Files
-
-Split into separate files when:
-
-- SKILL.md exceeds 100 lines
-- Content has distinct domains (finance vs sales schemas)
-- Advanced features are rarely needed
-
-## Review Checklist
-
-After drafting, verify:
-
-- [ ] Description includes triggers ("Use when...")
-- [ ] SKILL.md under 100 lines
-- [ ] No time-sensitive info
-- [ ] Consistent terminology
-- [ ] Concrete examples included
-- [ ] References one level deep
+- Preserve the author's voice — edit for clarity, not for your style
+- Prioritize: structure > clarity > style > polish
+- Flag cuts rather than silently deleting — the author decides what stays
+- If the draft is an outline, give structural feedback only; don't line-edit until there's prose
